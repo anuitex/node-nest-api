@@ -59,10 +59,7 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
@@ -84,10 +81,7 @@
       "check-whitespace"
     ],
     "prefer-const": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
+    "quotemark": false,
     "radix": true,
     "semicolon": [
       true,

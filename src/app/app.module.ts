@@ -1,39 +1,46 @@
+// Vendors
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-import { fakeBackendProvider } from './helpers/fake-backend';
-
+// Routings
 import { AppRoutingModule } from './app-routing.module';
-
-import { AlertComponent } from './directives/alert/alert.component';
-import { AuthGuard } from './guards/auth.guard';
-import { JwtInterceptor, ErrorInterceptor } from './helpers';
-import { AlertService, AuthenticationService, UserService } from './services';
-import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/register/register.component';
-
+// Directives
+import { AlertComponent } from './shared/directives/alert/alert.component';
+// Guards
+import { AuthGuard } from './shared/guards/auth.guard';
+// Helpers
+import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
+// Services
+import { AlertService, AuthenticationService, UserService } from 'app/shared/services';
+// Containers
+// import { HomeComponent } from 'app/pages/home/home.component';
 // Components
-import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
-import { LibraryComponent } from './pages/library/library.component';
-import { AppHeaderComponent } from './components/app-header/app-header.component';
-import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { AppComponent } from 'app/app.component';
+import { LoginComponent } from 'app/pages/login/login.component';
+import { RegisterComponent } from 'app/pages/register/register.component';
+// import { AllBooksComponent } from 'app/library/all-books/all-books.component';
+// Containers
+import { AppHeaderComponent, AppFooterComponent, FullLayoutComponent } from 'app/shared/containers';
 
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+const APP_CONTAINERS = [ FullLayoutComponent ];
+
+const APP_COMPONENTS = [
+  AppHeaderComponent,
+  AppFooterComponent
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
-    HomeComponent,
+    // HomeComponent,
     LoginComponent,
     RegisterComponent,
-    LibraryComponent,
-    AppHeaderComponent,
-    AppFooterComponent
+    // AllBooksComponent,
+    ...APP_COMPONENTS,
+    ...APP_CONTAINERS
   ],
   imports: [
     BrowserModule,

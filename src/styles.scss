@@ -1,15 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-.main-content {
-    min-height: 100vh;
-    
-    app-root {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+// Utils
+@import "assets/sass/utils/variables";
 
-        main {
-            flex-grow: 1;
-        }
-    }
-}
+// Layout
+@import "assets/sass/layout/grid";
+
+// Components
+@import "assets/sass/components/login-window";
