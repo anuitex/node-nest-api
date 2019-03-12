@@ -31,13 +31,13 @@ const routes: Routes = [
     path: 'library',
     component: FullLayoutComponent,
     canActivate: [AuthGuard],
-    loadChildren: 'app/library/library.module#LibraryModule'
+    loadChildren: 'app/pages/library/library.module#LibraryModule'
   },
   {
     path: 'admin',
     component: FullLayoutComponent,
     canActivate: [AuthGuard],
-    loadChildren: 'app/admin/admin.module#AdminModule'
+    loadChildren: 'app/pages/admin/admin.module#AdminModule'
   },
 
   // otherwise redirect to home

@@ -2,15 +2,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Guards
-// import { AuthGuard } from 'app/shared/guards';
-
 // Components
-import { LibraryComponent } from 'app/library/library.component';
-import { AllBooksComponent } from 'app/library/all-books/all-books.component';
-import { BookDetailsComponent } from 'app/library/book-details/book-details.component';
-// import { HomeComponent } from 'app/pages/home/home.component';
-// import { RegisterComponent } from 'app/pages/register/register.component';
+import { LibraryComponent } from 'app/pages/library/library.component';
+import { AllBooksComponent } from 'app/pages/library/all-books/all-books.component';
+import { BookDetailsComponent } from 'app/pages/library/book-details/book-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'all-books', pathMatch: 'full' },
@@ -23,8 +18,6 @@ const routes: Routes = [
     ]
   }
 ];
-
-// /library/
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

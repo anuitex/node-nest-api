@@ -7,9 +7,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Routings
 import { AppRoutingModule } from './app-routing.module';
 // Directives
-import { AlertComponent } from './shared/directives/alert/alert.component';
+import { AlertComponent } from 'app/shared/directives/alert/alert.component';
 // Guards
-import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthGuard } from 'app/shared/guards/auth.guard';
 // Helpers
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
 // Services

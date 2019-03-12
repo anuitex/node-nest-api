@@ -6,10 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 // import { AuthGuard } from 'app/shared/guards';
 
 // Components
-import { AdminComponent } from 'app/admin/admin.component';
-import { AllUsersComponent } from 'app/admin/all-users/all-users.component';
-import { AddBookComponent } from 'app/admin/add-book/add-book.component';
-import { EditBookComponent } from 'app/admin/edit-book/edit-book.component';
+import { AdminComponent } from 'app/pages/admin/admin.component';
+import { AllUsersComponent } from 'app/pages/admin/all-users/all-users.component';
+import { AddBookComponent } from 'app/pages/admin/add-book/add-book.component';
+import { EditBookComponent } from 'app/pages/admin/edit-book/edit-book.component';
 
 const routes: Routes = [
   { path: '',
