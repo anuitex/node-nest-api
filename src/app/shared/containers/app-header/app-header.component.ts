@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Models
 import { User } from 'app/shared/models';
+import { AuthenticationService } from 'app/shared/services';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,10 @@ import { User } from 'app/shared/models';
 export class AppHeaderComponent implements OnInit {
   public currentUser: User;
 
-  constructor() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  constructor(
+    private authenticationService: AuthenticationService
+  ) {
+    this.currentUser = this.authenticationService.getCurrentUser();
   }
 
   ngOnInit() {

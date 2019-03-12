@@ -13,7 +13,7 @@
   </ul>
 
   <div class="books-container row">
-    <div class="col-12 col-md-6 col-lg-3" *ngFor="let book of booksArray">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let book of books">
       <div class="book-box" (click)="showBookDetails(book.id)">
         <span>{{book.name}}</span><br>
         <span>{{book.description}}</span><br>

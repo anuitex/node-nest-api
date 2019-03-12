@@ -20,10 +20,9 @@ export class BooksService {
     let booksArray;
     this.http.get("../../../assets/books.json").subscribe((data) => {
       booksArray = (data as any).books;
-      // console.log(booksArray);
-      debugger;
-      let book = booksArray.find(x => x.id === 3);
-      // console.log(book);
+      // debugger;
+      let book = booksArray.find(x => x.id === bookId);
+      return book;
     });
   }
 }

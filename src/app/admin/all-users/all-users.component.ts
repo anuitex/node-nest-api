@@ -4,9 +4,8 @@ import { first } from 'rxjs/operators';
 
 // Models
 import { User } from 'app/shared/models';
-
 // Services
-import { UserService } from 'app/shared/services';
+import { UserService, AuthenticationService } from 'app/shared/services';
 
 @Component({
   templateUrl: 'all-users.component.html'
@@ -17,9 +16,10 @@ export class AllUsersComponent implements OnInit {
   public users: User[] = [];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private authenticationService: AuthenticationService
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = this.authenticationService.getCurrentUser();
   }
 
   ngOnInit() {

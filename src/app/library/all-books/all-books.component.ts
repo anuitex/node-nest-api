@@ -1,12 +1,11 @@
 // Vendors
 import { Component, OnInit } from '@angular/core';
-// import { RouterModule, Routes } from '@angular/router';
-// import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
+
 // Models
 import { Book, User } from 'app/shared/models';
 // Services
-import { BooksService } from 'app/shared/services';
+import { BooksService, AuthenticationService } from 'app/shared/services';
 
 @Component({
   selector: 'app-all-books',
@@ -15,22 +14,20 @@ import { BooksService } from 'app/shared/services';
 })
 
 export class AllBooksComponent implements OnInit {
-  public test: string = "All books";
-  public booksArray: Book[];
+  public books: Book[] = [] as Book[];
   public currentUser: User;
 
   constructor(
     public booksService: BooksService,
+    public authenticationService: AuthenticationService,
     public router: Router
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.currentUser);
+    this.currentUser = this.authenticationService.getCurrentUser();
+    // console.log(this.currentUser);
 
     this.booksService.getAllBooks().subscribe((data) => {
-      this.booksArray = data.books;
-      console.log(this.booksArray);
+      this.books = data.books;
     });
-
   }
 
   ngOnInit() {
@@ -38,10 +35,6 @@ export class AllBooksComponent implements OnInit {
   }
 
   public showBookDetails(id: number): void {
-    // debugger;
     this.router.navigate(['/library/book-details', id]);
   }
-
-
-
 }

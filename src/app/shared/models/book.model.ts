@@ -3,7 +3,7 @@ import { Author } from 'app/shared/models';
 // Enums
 import { BookType } from 'app/shared/enums';
 
-export class Book {
+export interface Book {
   id: number;
   name: string;
   description: string;
