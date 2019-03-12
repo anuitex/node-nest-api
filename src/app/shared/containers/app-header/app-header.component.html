@@ -24,5 +24,8 @@
     </ul>
   </div>
 
-  <a [routerLink]="['/login']">Logout</a>
+  <div class="d-flex">
+    <div>{{currentUser.firstName}}</div>
+    <a [routerLink]="['/login']">Logout</a>
+  </div>
 </nav>

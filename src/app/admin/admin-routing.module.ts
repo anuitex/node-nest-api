@@ -7,15 +7,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { AdminComponent } from 'app/admin/admin.component';
-import { AllUsersComponent } from './all-users/all-users.component';
+import { AllUsersComponent } from 'app/admin/all-users/all-users.component';
+import { AddBookComponent } from 'app/admin/add-book/add-book.component';
+import { EditBookComponent } from 'app/admin/edit-book/edit-book.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'all-users', pathMatch: 'full' },
-  { path: '', component: AdminComponent,
+  { path: '',
+    redirectTo: 'all-users',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: AdminComponent,
     children: [
       { path: 'all-users', component: AllUsersComponent },
-      // { path: 'edit', component: EditBookComponent },
-      // { path: 'add', component: AddBookComponent }
+      { path: 'edit-book', component: EditBookComponent },
+      { path: 'add-book', component: AddBookComponent }
     ]
   }
 ];

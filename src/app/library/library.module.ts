@@ -23,6 +23,7 @@ import { LibraryRoutingModule } from './library-routing.module';
 // import { RegisterComponent } from 'app/pages/register/register.component';
 import { LibraryComponent } from 'app/library/library.component';
 import { AllBooksComponent } from 'app/library/all-books/all-books.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 // Containers
 // import { AppHeaderComponent, AppFooterComponent, FullLayoutComponent } from 'app/shared/containers';
 
@@ -42,6 +43,7 @@ import { AllBooksComponent } from 'app/library/all-books/all-books.component';
     // RegisterComponent,
     LibraryComponent,
     AllBooksComponent,
+    BookDetailsComponent,
     // ...APP_COMPONENTS,
     // ...APP_CONTAINERS
   ],

@@ -1,0 +1,88 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    },
+    {
+      "id": "2",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    },
+    {
+      "id": "3",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    },
+    {
+      "id": "4",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    },
+    {
+      "id": "5",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    },
+    {
+      "id": "6",
+      "name": "Lorem",
+      "description": "Ipsum dolor sit amet",
+      "authors": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe"
+        }
+      ],
+      "type": "book",
+      "outOfLibrary": "true"
+    }
+  ]
+}

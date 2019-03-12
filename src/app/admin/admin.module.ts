@@ -23,6 +23,8 @@ import { AdminRoutingModule } from 'app/admin/admin-routing.module';
 // import { RegisterComponent } from 'app/pages/register/register.component';
 import { AdminComponent } from 'app/admin/admin.component';
 import { AllUsersComponent } from 'app/admin/all-users/all-users.component';
+import { AddBookComponent } from 'app/admin/add-book/add-book.component';
+import { EditBookComponent } from 'app/admin/edit-book/edit-book.component';
 // Containers
 // import { AppHeaderComponent, AppFooterComponent, FullLayoutComponent } from 'app/shared/containers';
 
@@ -36,7 +38,9 @@ import { AllUsersComponent } from 'app/admin/all-users/all-users.component';
 @NgModule({
   declarations: [
     AdminComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    AddBookComponent,
+    EditBookComponent
   ],
   imports: [
     CommonModule,

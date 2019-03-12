@@ -1,7 +1,7 @@
 // Vendors
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Routings
@@ -13,7 +13,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 // Helpers
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
 // Services
-import { AlertService, AuthenticationService, UserService } from 'app/shared/services';
+import { AlertService, AuthenticationService, UserService, BooksService } from 'app/shared/services';
 // Containers
 // import { HomeComponent } from 'app/pages/home/home.component';
 // Components
@@ -45,6 +45,7 @@ const APP_COMPONENTS = [
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],
@@ -53,6 +54,7 @@ const APP_COMPONENTS = [
     AlertService,
     AuthenticationService,
     UserService,
+    BooksService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
