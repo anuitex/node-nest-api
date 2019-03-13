@@ -23,8 +23,13 @@ export class BookDetailsComponent implements OnInit {
     private bookService: BooksService
   ) {
     let bookId = parseInt(this.route.snapshot.params.id, 10);
-    this.book = this.bookService.getBook(bookId);
-    console.log(this.book);
+    // this.book = this.bookService.getBook(bookId);
+    // console.log(this.book);
+
+    this.bookService.getBook(bookId).subscribe((data)=>{
+      console.log(data);
+      this.book = data;
+    });
   }
 
   ngOnInit() {

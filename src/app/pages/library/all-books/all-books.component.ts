@@ -23,10 +23,9 @@ export class AllBooksComponent implements OnInit {
     public router: Router
   ) {
     this.currentUser = this.authenticationService.getCurrentUser();
-    // console.log(this.currentUser);
 
-    this.booksService.getAllBooks().subscribe((data) => {
-      this.books = data.books;
+    this.booksService.getAllBooks().then((response) => {
+        this.books = response.books;
     });
   }
 

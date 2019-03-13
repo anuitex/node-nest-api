@@ -12,17 +12,36 @@ export class BooksService {
 
   }
 
-  public getAllBooks(): any {
-    return this.http.get("../../../assets/books.json");
+  public getAllBooks(): Promise<any> {
+    let promise = new Promise((resolve, reject) => {
+      this.http.get("../../../assets/books.json")
+        .toPromise()
+        .then((res) => {
+          resolve(res);
+        });
+    });
+    return promise;
   }
 
   public getBook(bookId: number): any { // TODO
+    // let promise = new Promise((resolve, reject) => {
+    //   this.http.get("../../../assets/books.json")
+    //     .toPromise()
+    //     .then((res) => {
+    //       let books = res.books;
+    //       // resolve(res);
+    //     });
+    // });
+    // return promise;
+
     let booksArray;
-    this.http.get("../../../assets/books.json").subscribe((data) => {
+    let book;
+    return this.http.get("../../../assets/books.json").subscribe((data) => {
       booksArray = (data as any).books;
       // debugger;
-      let book = booksArray.find(x => x.id === bookId);
+      book = booksArray.find(x => x.id === bookId);
       return book;
     });
   }
+
 }
