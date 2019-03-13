@@ -15,13 +15,16 @@ import { BooksService } from 'app/shared/services';
 
 export class BookDetailsComponent implements OnInit {
   public book: Book;
+  // public test: string = "TEST";
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private bookService: BooksService
   ) {
-
+    let bookId = parseInt(this.route.snapshot.params.id, 10);
+    this.book = this.bookService.getBook(bookId);
+    console.log(this.book);
   }
 
   ngOnInit() {
@@ -30,12 +33,11 @@ export class BookDetailsComponent implements OnInit {
     //     this.service.getBook(params.get('id'))
     //     )
     // );
-    this.route.params.subscribe((data) => {
-      // debugger;
-      let k = parseInt(data.id, 10);
-      this.book = this.bookService.getBook(k);
-      // console.log(this.book);
-    });
+    // this.route.params.subscribe((data) => {
+    //   debugger;
+    //   let k = parseInt(data.id, 10);
+    //   this.book = this.bookService.getBook(k);
+    // });
   }
 
   public goToAllBooks(): void {

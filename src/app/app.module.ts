@@ -14,13 +14,10 @@ import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
 // Services
 import { AlertService, AuthenticationService, UserService, BooksService } from 'app/shared/services';
-// Containers
-// import { HomeComponent } from 'app/pages/home/home.component';
 // Components
 import { AppComponent } from 'app/app.component';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { RegisterComponent } from 'app/pages/register/register.component';
-// import { AllBooksComponent } from 'app/library/all-books/all-books.component';
 // Containers
 import { AppHeaderComponent, AppFooterComponent, FullLayoutComponent } from 'app/shared/containers';
 
@@ -35,10 +32,8 @@ const APP_COMPONENTS = [
   declarations: [
     AppComponent,
     AlertComponent,
-    // HomeComponent,
     LoginComponent,
     RegisterComponent,
-    // AllBooksComponent,
     ...APP_COMPONENTS,
     ...APP_CONTAINERS
   ],
