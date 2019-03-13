@@ -1,11 +1,10 @@
 <div class="col-12 ">
-  <h1>ALL BOOKS WORKS</h1>
 
   <ul>
     <li *ngIf="currentUser.userRole === 'Admin'"><a [routerLink]="['/admin/add-book']"
-        routerLinkActive="router-link-active" href="">Add book</a></li>
-    <li *ngIf="currentUser.userRole === 'Admin'"><a [routerLink]="['/admin/edit-book']"
-        routerLinkActive="router-link-active" href="">Edit book</a></li>
+        routerLinkActive="router-link-active">Add book</a></li>
+    <!-- <li *ngIf="currentUser.userRole === 'Admin'"><a [routerLink]="['/admin/edit-book']"
+        routerLinkActive="router-link-active">Edit book</a></li> -->
   </ul>
 
   <div class="books-container row">

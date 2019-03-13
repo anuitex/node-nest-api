@@ -1,6 +1,6 @@
 // Vendors
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-add-book',
@@ -9,10 +9,21 @@ import { first } from 'rxjs/operators';
 })
 
 export class AddBookComponent implements OnInit {
+  public bookForm: FormGroup;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+
+  }
 
   ngOnInit() {
-
+    // this.bookForm = this.formBuilder.group({
+    //   name: ['', Validators.required],
+    //   description: ['', Validators.required],
+    //   authors: ['', Validators.required],
+    //   outOfLibrary: ['', Validators.required],
+    //   type: ['', Validators.required]
+    // });
   }
 }

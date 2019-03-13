@@ -26,7 +26,7 @@ export class BooksService {
     return promise;
   }
 
-  public getBook(bookId: number): any { // TODO
+  public getBook(bookId: number): any {
     let chosenBook;
 
     let promise = new Promise((resolve, reject) => {
@@ -39,15 +39,6 @@ export class BooksService {
         });
     });
     return promise;
-
-    // let booksArray;
-    // let book;
-    // return this.http.get("../../../assets/books.json").subscribe((data) => {
-    //   booksArray = (data as any).books;
-    //   // debugger;
-    //   book = booksArray.find(x => x.id === bookId);
-    //   return book;
-    // });
   }
 
 }

@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Directives
 import { AlertComponent } from 'app/shared/directives/alert/alert.component';
 // Guards
-import { AuthGuard } from 'app/shared/guards/auth.guard';
+import { AuthGuard, RoleGuard } from 'app/shared/guards';
 // Helpers
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
 // Services
@@ -46,6 +46,7 @@ const APP_COMPONENTS = [
   ],
   providers: [
     AuthGuard,
+    RoleGuard,
     AlertService,
     AuthenticationService,
     UserService,

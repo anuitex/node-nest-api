@@ -2,9 +2,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Guards
-// import { AuthGuard } from 'app/shared/guards';
-
 // Components
 import { AdminComponent } from 'app/pages/admin/admin.component';
 import { AllUsersComponent } from 'app/pages/admin/all-users/all-users.component';

@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 // Models
-import { Book } from 'app/shared/models';
+import { Book, User } from 'app/shared/models';
 // Services
-import { BooksService } from 'app/shared/services';
+import { BooksService, AuthenticationService } from 'app/shared/services';
 
 @Component({
   selector: 'app-book-details',
@@ -15,12 +15,13 @@ import { BooksService } from 'app/shared/services';
 
 export class BookDetailsComponent implements OnInit {
   public book: Book;
-  // public test: string = "TEST";
+  public currentUser: User;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private bookService: BooksService
+    private bookService: BooksService,
+    private authenticationService: AuthenticationService
   ) {
     let bookId = parseInt(this.route.snapshot.params.id, 10);
 
@@ -28,23 +29,17 @@ export class BookDetailsComponent implements OnInit {
       console.log(response);
       this.book = response;
     });
+
+    this.currentUser = this.authenticationService.getCurrentUser();
+    console.log(this.currentUser);
   }
 
   ngOnInit() {
-    // this.book = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) =>
-    //     this.service.getBook(params.get('id'))
-    //     )
-    // );
-    // this.route.params.subscribe((data) => {
-    //   debugger;
-    //   let k = parseInt(data.id, 10);
-    //   this.book = this.bookService.getBook(k);
-    // });
+
   }
 
-  public startEditBook(): void {
-
+  public editBook(): void {
+    console.log('Edit book func');
   }
 
   public goToAllBooks(): void {

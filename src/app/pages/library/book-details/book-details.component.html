@@ -1,17 +1,18 @@
 <div class="col-12 ">
-  <h1>BOOK DETAILS WORKS</h1>
+  <h1>BOOK DETAILS</h1>
   <button class="btn btn-primary m-1" type="button" (click)="goToAllBooks()">Back</button>
-  <button class="btn btn-primary m-1" type="button" (click)="startEditBook()">Edit</button>
+  <button class="btn btn-primary m-1" type="button" *ngIf="currentUser.userRole === 'Admin'" (click)="editBook()">Edit</button>
 
   <div class="container">
     <div class="form-group" *ngIf="book">
-      {{ book.id }} <br>
-      {{ book.name }} <br>
-      {{ book.outOfLibrary }} <br>
-      {{ book.type }} <br>
-      {{ book.description }} <br>
-      <div *ngFor="let author of book.authors">
-        {{ author.firstName}} &nbsp; {{ author.lastName }} ({{ author.id }})
+      <b>ID:</b> {{ book.id }} <br>
+      <b>Name:</b> {{ book.name }} <br>
+      <b>Out of library:</b> {{ book.outOfLibrary }} <br>
+      <b>Type:</b> {{ book.type }} <br>
+      <b>Description:</b> {{ book.description }} <br>
+      <b>Authors: </b><br>
+      <div *ngFor="let author of book.authors; let i = index">
+        {{ i+1 }}. {{ author.firstName}} &nbsp; {{ author.lastName }} ({{ author.id }})
       </div>
     </div>
   </div>
