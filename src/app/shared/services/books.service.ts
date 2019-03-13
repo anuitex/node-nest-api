@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Models
+import { BooksResponse } from 'app/shared/models/responseModels';
+
 @Injectable()
 export class BooksService {
 
@@ -16,7 +19,7 @@ export class BooksService {
     let promise = new Promise((resolve, reject) => {
       this.http.get("../../../assets/books.json")
         .toPromise()
-        .then((res) => {
+        .then((res: BooksResponse) => {
           resolve(res);
         });
     });
@@ -24,24 +27,27 @@ export class BooksService {
   }
 
   public getBook(bookId: number): any { // TODO
-    // let promise = new Promise((resolve, reject) => {
-    //   this.http.get("../../../assets/books.json")
-    //     .toPromise()
-    //     .then((res) => {
-    //       let books = res.books;
-    //       // resolve(res);
-    //     });
-    // });
-    // return promise;
+    let chosenBook;
 
-    let booksArray;
-    let book;
-    return this.http.get("../../../assets/books.json").subscribe((data) => {
-      booksArray = (data as any).books;
-      // debugger;
-      book = booksArray.find(x => x.id === bookId);
-      return book;
+    let promise = new Promise((resolve, reject) => {
+      this.http.get("../../../assets/books.json")
+        .toPromise()
+        .then((res: BooksResponse) => {
+          let books = res.books;
+          chosenBook = books.find(x => x.id === bookId);
+          resolve(chosenBook);
+        });
     });
+    return promise;
+
+    // let booksArray;
+    // let book;
+    // return this.http.get("../../../assets/books.json").subscribe((data) => {
+    //   booksArray = (data as any).books;
+    //   // debugger;
+    //   book = booksArray.find(x => x.id === bookId);
+    //   return book;
+    // });
   }
 
 }

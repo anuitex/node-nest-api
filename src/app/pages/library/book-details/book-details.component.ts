@@ -23,12 +23,10 @@ export class BookDetailsComponent implements OnInit {
     private bookService: BooksService
   ) {
     let bookId = parseInt(this.route.snapshot.params.id, 10);
-    // this.book = this.bookService.getBook(bookId);
-    // console.log(this.book);
 
-    this.bookService.getBook(bookId).subscribe((data)=>{
-      console.log(data);
-      this.book = data;
+    this.bookService.getBook(bookId).then((response) => {
+      console.log(response);
+      this.book = response;
     });
   }
 
@@ -43,6 +41,10 @@ export class BookDetailsComponent implements OnInit {
     //   let k = parseInt(data.id, 10);
     //   this.book = this.bookService.getBook(k);
     // });
+  }
+
+  public startEditBook(): void {
+
   }
 
   public goToAllBooks(): void {
