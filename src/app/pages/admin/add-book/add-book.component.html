@@ -1,12 +1,12 @@
 <h1>ADD BOOK works</h1>
-<!-- <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" formControlName="name" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-        <div *ngIf="f.name.errors.required">Name is required</div>
+      <div *ngIf="submitted && formCtrl.name.errors" class="invalid-feedback">
+        <div *ngIf="formCtrl.name.errors.required">Name is required</div>
       </div>
     </div>
 
@@ -14,8 +14,8 @@
       <label for="description">Description</label>
       <input type="text" formControlName="description" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
-      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
-        <div *ngIf="f.description.errors.required">Description is required</div>
+      <div *ngIf="submitted && formCtrl.description.errors" class="invalid-feedback">
+        <div *ngIf="formCtrl.description.errors.required">Description is required</div>
       </div>
     </div>
 
@@ -23,8 +23,8 @@
       <label for="authors">Authors</label>
       <input type="text" formControlName="authors" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.authors.errors }" />
-      <div *ngIf="submitted && f.authors.errors" class="invalid-feedback">
-        <div *ngIf="f.authors.errors.required">Authors is required</div>
+      <div *ngIf="submitted && formCtrl.authors.errors" class="invalid-feedback">
+        <div *ngIf="formCtrl.authors.errors.required">Authors is required</div>
       </div>
     </div>
 
@@ -34,21 +34,21 @@
     </div>
 
     <div class="form-group">
-      <label for="type">User Role</label>
-      <select name="type" id="book-type" class="form-control" formControlName="userRole"
+      <label for="type">Book Type</label>
+      <select name="type" id="book-type" class="form-control" formControlName="type"
         [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
         <option value="Book" selected>Book</option>
         <option value="Magazine">Magazine</option>
       </select>
-      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
-        <div *ngIf="f.type.errors.required">Type is required</div>
+      <div *ngIf="submitted && formCtrl.type.errors" class="invalid-feedback">
+        <div *ngIf="formCtrl.type.errors.required">Type is required</div>
       </div>
     </div>
 
     <div class="form-group">
-      <button [disabled]="loading" class="btn btn-primary">Register</button>
+      <button [disabled]="loading" class="btn btn-primary">Add</button>
       <img *ngIf="loading"
         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-      <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+      <a (click)="cancel()" class="btn btn-link">Cancel</a>
     </div>
-  </form> -->
+  </form>

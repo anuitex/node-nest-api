@@ -1,6 +1,7 @@
 // Vendors
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Routings
 import { AdminRoutingModule } from 'app/pages/admin/admin-routing.module';
@@ -19,7 +20,8 @@ import { EditBookComponent } from 'app/pages/admin/edit-book/edit-book.component
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [  ]
 })

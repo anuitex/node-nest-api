@@ -7,8 +7,8 @@
         <label for="firstName">First Name</label>
         <input type="text" formControlName="firstName" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        <div *ngIf="submitted && formCtrl.firstName.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.firstName.errors.required">First Name is required</div>
         </div>
       </div>
       <!-- Last name -->
@@ -16,8 +16,8 @@
         <label for="lastName">Last Name</label>
         <input type="text" formControlName="lastName" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        <div *ngIf="submitted && formCtrl.lastName.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.lastName.errors.required">Last Name is required</div>
         </div>
       </div>
       <!-- Username -->
@@ -25,8 +25,8 @@
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-          <div *ngIf="f.username.errors.required">Username is required</div>
+        <div *ngIf="submitted && formCtrl.username.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.username.errors.required">Username is required</div>
         </div>
       </div>
       <!-- Password -->
@@ -34,9 +34,9 @@
         <label for="password">Password</label>
         <input type="password" formControlName="password" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">Password is required</div>
-          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        <div *ngIf="submitted && formCtrl.password.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.password.errors.required">Password is required</div>
+          <div *ngIf="formCtrl.password.errors.minlength">Password must be at least 6 characters</div>
         </div>
       </div>
       <!-- Repeat Password -->
@@ -44,7 +44,7 @@
         <label for="password">Repeat Password</label>
         <input type="password" formControlName="repeatPassword" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-          <div *ngIf="submitted && (f.password.value !== f.repeatPassword.value)" class="">
+          <div *ngIf="submitted && (formCtrl.password.value !== formCtrl.repeatPassword.value)" class="">
             <div>Pass and Repeat Pass should be the same</div>
           </div>
       </div>
@@ -56,8 +56,8 @@
           <option value="User" selected>User</option>
           <option value="Admin">Admin</option>
         </select>
-        <div *ngIf="submitted && f.userRole.errors" class="invalid-feedback">
-          <div *ngIf="f.userRole.errors.required">User Role is required</div>
+        <div *ngIf="submitted && formCtrl.userRole.errors" class="invalid-feedback">
+          <div *ngIf="formCtrl.userRole.errors.required">User Role is required</div>
         </div>
       </div>
       <!-- 'Register' button -->

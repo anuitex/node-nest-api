@@ -7,6 +7,6 @@ export interface User {
     password: string;
     firstName: string;
     lastName: string;
-    userRole: UserType;
+    userRole: UserType | string;
     token?: any;
 }

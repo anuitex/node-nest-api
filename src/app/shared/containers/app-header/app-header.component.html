@@ -15,7 +15,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="currentUser.userRole === 'Admin'">
         <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin pages</a>
       </li>
       <li class="nav-item">

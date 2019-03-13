@@ -40,6 +40,7 @@ export class BookDetailsComponent implements OnInit {
 
   public editBook(): void {
     console.log('Edit book func');
+    this.router.navigate(['/admin/add-book']);
   }
 
   public goToAllBooks(): void {
