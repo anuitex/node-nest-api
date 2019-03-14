@@ -26,6 +26,8 @@ export class AllBooksComponent implements OnInit {
 
     this.booksService.getAllBooks().then((response) => {
         this.books = response.books;
+    }).catch(function (e) {
+      console.log(e);
     });
   }
 

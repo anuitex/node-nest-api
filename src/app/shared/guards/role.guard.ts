@@ -24,19 +24,8 @@ export class RoleGuard implements CanActivate {
       return true;
     }
 
-    // navigate to not found page
     this.router.navigate(['/library']);
     return false;
   }
 
-  // public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-  //   if (this.authenticationService.getCurrentUser()) {
-  //     // logged in so return true
-  //     return true;
-  //   }
-
-  //   // not logged in so redirect to login page with the return url
-  //   this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-  //   return false;
-  // }
 }

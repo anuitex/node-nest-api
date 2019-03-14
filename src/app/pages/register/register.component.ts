@@ -1,5 +1,5 @@
 // Vendors
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -16,7 +16,6 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public loading: Boolean = false;
   public submitted: Boolean = false;
-  // public repeatPassword: string;
   public formCtrl: any = this.registerForm.controls;
 
   constructor(
@@ -42,11 +41,9 @@ export class RegisterComponent implements OnInit {
   // convenience getter for easy access to form fields
   // get f() { return this.registerForm.controls; }
 
-
   public onSubmit(): void {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }

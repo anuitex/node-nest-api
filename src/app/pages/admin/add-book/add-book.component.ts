@@ -2,9 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-// import { Router } from "@angular/router";
 import { Location } from '@angular/common';
-
 
 @Component({
   selector: 'app-add-book',
@@ -20,7 +18,6 @@ export class AddBookComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    // private router: Router,
     private location: Location
   ) {
 
@@ -43,7 +40,6 @@ export class AddBookComponent implements OnInit {
   }
 
   public cancel(): void {
-    // this.router.navigate(['/']);
     this.location.back();
   }
 }
