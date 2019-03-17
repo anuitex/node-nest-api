@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
+
 // Models
 import { Book, User } from 'app/shared/models';
 // Services
@@ -15,7 +16,9 @@ import { BooksService, AuthenticationService } from 'app/shared/services';
 
 export class AllBooksComponent implements OnInit {
   public books: Book[] = [] as Book[];
+  public booksTotalCount: number;
   public currentUser: User;
+  public p: number = 1;
 
   constructor(
     public booksService: BooksService,
@@ -26,6 +29,8 @@ export class AllBooksComponent implements OnInit {
 
     this.booksService.getAllBooks().then((response) => {
         this.books = response.books;
+        this.booksTotalCount = response.count;
+        console.log(response);
     }).catch(function (e) {
       console.log(e);
     });
@@ -36,10 +41,14 @@ export class AllBooksComponent implements OnInit {
   }
 
   public addNewBook(): void {
-    this.router.navigate(['/admin/add-book']);
+    this.router.navigate(['/admin/add-book', -1]);
   }
 
   public showBookDetails(id: number): void {
     this.router.navigate(['/library/book-details', id]);
+  }
+
+  public pageChange($event: number): void {
+    this.p = $event;
   }
 }

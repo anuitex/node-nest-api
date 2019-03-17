@@ -4,21 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Guards
 import { AuthGuard, RoleGuard } from 'app/shared/guards';
-
+// Enums
+import { UserType } from 'app/shared/enums';
 // Components
 import { LoginComponent } from 'app/pages/login/login.component';
 import { RegisterComponent } from 'app/pages/register/register.component';
 import { FullLayoutComponent } from 'app/shared/containers';
 
 const routes: Routes = [
-  // { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
-  // { path: 'library', component: LibraryComponent },
-  // {
-  //   path: '',
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuard]
-  // },
   {
     path: 'login',
     component: LoginComponent
@@ -37,6 +30,7 @@ const routes: Routes = [
     path: 'admin',
     component: FullLayoutComponent,
     canActivate: [AuthGuard, RoleGuard],
+    // data: { roles: [UserType.Admin] },
     data: {role: 'Admin'},
     loadChildren: 'app/pages/admin/admin.module#AdminModule'
   },

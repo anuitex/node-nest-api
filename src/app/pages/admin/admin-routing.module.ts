@@ -18,8 +18,8 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'all-users', component: AllUsersComponent },
-      { path: 'edit-book', component: EditBookComponent },
-      { path: 'add-book', component: AddBookComponent }
+      // { path: 'edit-book', component: EditBookComponent },
+      { path: 'add-book/:id', component: AddBookComponent }
     ]
   }
 ];

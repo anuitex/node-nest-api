@@ -1,4 +1,4 @@
 export enum BookType {
-  Book = 1,
-  Magazine = 2
+  Book = 'Book',
+  Magazine = 'Magazine'
 }
