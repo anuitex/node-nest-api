@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from 'app/pages/admin/admin.component';
 import { AllUsersComponent } from 'app/pages/admin/all-users/all-users.component';
 import { AddBookComponent } from 'app/pages/admin/add-book/add-book.component';
-import { EditBookComponent } from 'app/pages/admin/edit-book/edit-book.component';
+import { AddAuthorComponent } from 'app/pages/admin/add-author/add-author.component';
 
 const routes: Routes = [
   { path: '',
@@ -18,8 +18,8 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'all-users', component: AllUsersComponent },
-      // { path: 'edit-book', component: EditBookComponent },
-      { path: 'add-book/:id', component: AddBookComponent }
+      { path: 'add-book/:id', component: AddBookComponent },
+      { path: 'add-author/:id', component: AddAuthorComponent }
     ]
   }
 ];

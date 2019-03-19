@@ -1,6 +1,7 @@
 <div class="col-12 ">
   <div class="mt-2" *ngIf="currentUser.userRole === 'Admin'">
-    <button class="btn btn-primary" type="button" (click)="addNewBook(-1)">Add Book</button>
+    <button class="btn btn-primary mr-2" type="button" (click)="addNewBook(-1)">Add Book</button>
+    <button class="btn btn-primary" type="button" (click)="addNewBook(-1)">Add Author</button>
   </div>
 
   <div class="books-container row">
@@ -8,8 +9,11 @@
       <div class="book-box" (click)="showBookDetails(book.id)">
         <span>{{book.name}}</span><br>
         <span>{{book.description}}</span><br>
-        <div class="authors-block" *ngFor="let author of book.authors">
-          <span>{{author.firstName}}</span>&nbsp;<span>{{author.lastName}}</span>
+        <div class="d-flex">
+          <div class="authors-block" *ngFor="let author of book.authors; let i = index">
+            <span>{{author.firstName}}</span>&nbsp;<span>{{author.lastName}}</span>
+            <span *ngIf="i !== book.authors.length - 1">,&nbsp;</span>
+          </div>
         </div>
         <span>{{book.type}}</span>
       </div>

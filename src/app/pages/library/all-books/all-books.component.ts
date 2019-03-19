@@ -2,11 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
-
 // Models
 import { Book, User } from 'app/shared/models';
 // Services
 import { BooksService, AuthenticationService } from 'app/shared/services';
+// Enums
+import { UserType } from 'app/shared/enums';
 
 @Component({
   selector: 'app-all-books',

@@ -10,9 +10,14 @@
           "id": 1,
           "firstName": "John",
           "lastName": "Doe"
+        },
+        {
+          "id": 7,
+          "firstName": "Mark",
+          "lastName": "Twen"
         }
       ],
-      "type": "book",
+      "type": "Book",
       "outOfLibrary": true
     },
     {
@@ -21,13 +26,13 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
+          "id": 2,
           "firstName": "Jane",
           "lastName": "Doe"
         }
       ],
       "type": "Book",
-      "outOfLibrary": true
+      "outOfLibrary": false
     },
     {
       "id": 3,
@@ -35,13 +40,13 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
-          "firstName": "Jon",
-          "lastName": "Snow"
+          "id": 3,
+          "firstName": "Govard",
+          "lastName": "Lavcraft"
         }
       ],
       "type": "Magazine",
-      "outOfLibrary": true
+      "outOfLibrary": false
     },
     {
       "id": 4,
@@ -49,9 +54,9 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
-          "firstName": "John",
-          "lastName": "Smith"
+          "id": 4,
+          "firstName": "Joahn",
+          "lastName": "Rouling"
         }
       ],
       "type": "Book",
@@ -63,9 +68,9 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
-          "firstName": "Jackie",
-          "lastName": "Chan"
+          "id": 5,
+          "firstName": "Barb",
+          "lastName": "Hendi"
         }
       ],
       "type": "Book",
@@ -77,9 +82,9 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
-          "firstName": "Jim",
-          "lastName": "Carrey"
+          "id": 6,
+          "firstName": "Den",
+          "lastName": "Braun"
         }
       ],
       "type": "Magazine",
@@ -91,12 +96,12 @@
       "description": "Ipsum dolor sit amet",
       "authors": [
         {
-          "id": 1,
-          "firstName": "John",
-          "lastName": "Doe"
+          "id": 7,
+          "firstName": "Mark",
+          "lastName": "Twen"
         }
       ],
-      "type": "book",
+      "type": "Book",
       "outOfLibrary": true
     },
     {
@@ -106,7 +111,7 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jane",
+          "firstName": "John",
           "lastName": "Doe"
         }
       ],
@@ -120,8 +125,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jon",
-          "lastName": "Snow"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",
@@ -135,7 +140,7 @@
         {
           "id": 1,
           "firstName": "John",
-          "lastName": "Smith"
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -148,8 +153,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jackie",
-          "lastName": "Chan"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -162,8 +167,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jim",
-          "lastName": "Carrey"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",
@@ -180,7 +185,7 @@
           "lastName": "Doe"
         }
       ],
-      "type": "book",
+      "type": "Book",
       "outOfLibrary": true
     },
     {
@@ -190,7 +195,7 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jane",
+          "firstName": "John",
           "lastName": "Doe"
         }
       ],
@@ -204,8 +209,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jon",
-          "lastName": "Snow"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",
@@ -219,7 +224,7 @@
         {
           "id": 1,
           "firstName": "John",
-          "lastName": "Smith"
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -232,8 +237,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jackie",
-          "lastName": "Chan"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -246,8 +251,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jim",
-          "lastName": "Carrey"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",
@@ -264,7 +269,7 @@
           "lastName": "Doe"
         }
       ],
-      "type": "book",
+      "type": "Book",
       "outOfLibrary": true
     },
     {
@@ -274,7 +279,7 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jane",
+          "firstName": "John",
           "lastName": "Doe"
         }
       ],
@@ -288,8 +293,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jon",
-          "lastName": "Snow"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",
@@ -303,7 +308,7 @@
         {
           "id": 1,
           "firstName": "John",
-          "lastName": "Smith"
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -316,8 +321,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jackie",
-          "lastName": "Chan"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Book",
@@ -330,8 +335,8 @@
       "authors": [
         {
           "id": 1,
-          "firstName": "Jim",
-          "lastName": "Carrey"
+          "firstName": "John",
+          "lastName": "Doe"
         }
       ],
       "type": "Magazine",

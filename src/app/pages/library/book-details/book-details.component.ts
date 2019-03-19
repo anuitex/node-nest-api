@@ -26,12 +26,10 @@ export class BookDetailsComponent implements OnInit {
     let bookId = parseInt(this.route.snapshot.params.id, 10);
 
     this.bookService.getBook(bookId).then((response) => {
-      // console.log(response);
       this.book = response;
     });
 
     this.currentUser = this.authenticationService.getCurrentUser();
-    // console.log(this.currentUser);
   }
 
   ngOnInit() {
@@ -39,7 +37,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   public editBook(): void {
-    console.log('Edit book func');
     this.router.navigate(['/admin/add-book', this.book.id]);
   }
 

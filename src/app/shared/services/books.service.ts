@@ -26,7 +26,7 @@ export class BooksService {
     return promise;
   }
 
-  public getBook(bookId: number): any {
+  public getBook(bookId: number): Promise<any> {
     let chosenBook;
 
     let promise = new Promise((resolve, reject) => {
@@ -39,6 +39,10 @@ export class BooksService {
         });
     });
     return promise;
+  }
+
+  public delete(bookId: number): any { // TODO
+
   }
 
 }

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxPaginationModule } from 'ngx-pagination';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 // Routings
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +15,7 @@ import { AuthGuard, RoleGuard } from 'app/shared/guards';
 // Helpers
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from 'app/shared/helpers';
 // Services
-import { AlertService, AuthenticationService, UserService, BooksService } from 'app/shared/services';
+import { AlertService, AuthenticationService, UserService, BooksService, AuthorsService } from 'app/shared/services';
 // Components
 import { AppComponent } from 'app/app.component';
 import { LoginComponent } from 'app/pages/login/login.component';
@@ -44,7 +45,7 @@ const APP_COMPONENTS = [
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    // NgxPaginationModule
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthGuard,
@@ -53,6 +54,7 @@ const APP_COMPONENTS = [
     AuthenticationService,
     UserService,
     BooksService,
+    AuthorsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

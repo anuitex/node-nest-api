@@ -8,12 +8,14 @@ import { LibraryRoutingModule } from './library-routing.module';
 // Components
 import { LibraryComponent } from 'app/pages/library/library.component';
 import { AllBooksComponent } from 'app/pages/library/all-books/all-books.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
+import { AllAuthorsComponent } from 'app/pages/library/all-authors/all-authors.component';
+import { BookDetailsComponent } from 'app/pages/library/book-details/book-details.component';
 
 @NgModule({
   declarations: [
     LibraryComponent,
     AllBooksComponent,
+    AllAuthorsComponent,
     BookDetailsComponent
   ],
   imports: [
@@ -21,7 +23,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     LibraryRoutingModule,
     NgxPaginationModule
   ],
-  providers: [  ]
+  providers: [
+
+  ]
 })
 
 export class LibraryModule { }

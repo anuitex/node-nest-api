@@ -25,12 +25,12 @@ export class AlertService {
     });
   }
 
-  public success(message: string, keepAfterNavigationChange = false) {
+  public success(message: string, keepAfterNavigationChange = false): void {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'success', text: message });
   }
 
-  public error(message: string, keepAfterNavigationChange = false) {
+  public error(message: string, keepAfterNavigationChange = false): void {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'error', text: message });
   }
