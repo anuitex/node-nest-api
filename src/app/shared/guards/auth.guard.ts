@@ -4,6 +4,8 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 // Services
 import { AuthenticationService } from 'app/shared/services';
+// Models
+import { User } from 'app/shared/models';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -16,8 +18,15 @@ export class AuthGuard implements CanActivate {
   }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.authenticationService.getCurrentUser()) {
+    const currentUser: User = this.authenticationService.getCurrentUser();
+
+    if (currentUser) {
       // logged in so return true
+      if (route.data.roles && route.data.roles.indexOf(currentUser.userRole) === -1) {
+        this.router.navigate(['/library']);
+        return false;
+      }
+
       return true;
     }
 

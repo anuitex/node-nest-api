@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Guards
-import { AuthGuard, RoleGuard } from 'app/shared/guards';
+import { AuthGuard } from 'app/shared/guards';
 // Enums
 import { UserType } from 'app/shared/enums';
 // Components
@@ -29,9 +29,9 @@ const routes: Routes = [
   {
     path: 'admin',
     component: FullLayoutComponent,
-    canActivate: [AuthGuard, RoleGuard],
-    // data: { roles: [UserType.Admin] },
-    data: {role: 'Admin'},
+    canActivate: [AuthGuard],
+    data: { roles: [UserType.Admin] },
+    // data: {role: 'Admin'},
     loadChildren: 'app/pages/admin/admin.module#AdminModule'
   },
 
