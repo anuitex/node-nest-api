@@ -9,7 +9,7 @@ import { UsersController } from 'controllers/users/users.controller';
 import { AuthorsController } from 'controllers/authors/authors.controller';
 // Services
 import { AppService } from 'app.service';
-import { BooksService, AuthService, AuthorsService } from 'services';
+import { BooksService, AuthService, AuthorsService, UsersService } from 'services';
 // Schemas
 import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
 
@@ -17,9 +17,9 @@ import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
   imports: [
     MongooseModule.forRoot('mongodb://localhost:27017/ilibrary'),
     MongooseModule.forFeature([
-      { name: 'Book', schema: BookSchema },
-      { name: 'User', schema: UserSchema},
-      { name: 'Author', schema: AuthorSchema }
+      { name: 'Books', schema: BookSchema },
+      { name: 'Users', schema: UserSchema},
+      { name: 'Authors', schema: AuthorSchema }
     ])
   ],
   controllers: [
@@ -33,7 +33,8 @@ import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
     AppService,
     BooksService,
     AuthService,
-    AuthorsService
+    AuthorsService,
+    UsersService
     // ...booksProviders
   ]
 })

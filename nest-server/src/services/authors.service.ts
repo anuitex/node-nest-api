@@ -9,7 +9,7 @@ import { AuthorDto } from 'models/dto';
 @Injectable()
 export class AuthorsService {
     constructor(
-        @InjectModel('Author') private readonly authorModel: Model<Author>
+        @InjectModel('Authors') private readonly authorModel: Model<Author>
     ) {
 
     }

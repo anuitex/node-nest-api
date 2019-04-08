@@ -9,10 +9,9 @@ import { CreateBookDto } from 'models/dto/create-book.dto';
 
 @Injectable()
 export class BooksService {
-    // public test: Book = {} as Book;
 
     constructor(
-        @InjectModel('Book') private readonly bookModel: Model<Book>
+        @InjectModel('Books') private readonly bookModel: Model<Book>
     ) {
 
     }
