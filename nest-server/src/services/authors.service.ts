@@ -3,8 +3,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 // Models
-import { Author } from 'models/interfaces';
-import { AuthorDto } from 'models/dto';
+import { Author } from 'models';
 
 @Injectable()
 export class AuthorsService {
@@ -14,8 +13,8 @@ export class AuthorsService {
 
     }
 
-    public async create(authorDto: AuthorDto): Promise<Author> {
-        const createdAuthor = new this.authorModel(authorDto);
+    public async create(author: Author): Promise<Author> {
+        const createdAuthor = new this.authorModel(author);
         return await createdAuthor.save();
     }
 
@@ -28,10 +27,10 @@ export class AuthorsService {
         return await this.authorModel.find(query);
     }
 
-    public async updateById(authorDto: AuthorDto, id: string): Promise<Author> { // TODOs
+    public async updateById(author: Author, id: string): Promise<Author> { // TODOs
         const query = { _id: (id as any).id };
         console.log(query);
-        return await this.authorModel.findOneAndUpdate(query, authorDto);
+        return await this.authorModel.findOneAndUpdate(query, author);
     }
 
     public async deleteById(id: string): Promise<Author> {

@@ -4,8 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 // import { Response } from 'express';
 // Models
-import { Book } from 'models/interfaces/book.interface';
-import { CreateBookDto } from 'models/dto/create-book.dto';
+import { Book } from 'models/book.interface';
 
 @Injectable()
 export class BooksService {
@@ -16,8 +15,8 @@ export class BooksService {
 
     }
 
-    public async create(createBookDto: CreateBookDto): Promise<Book> {
-        const createdBook = new this.bookModel(createBookDto);
+    public async create(book: Book): Promise<Book> {
+        const createdBook = new this.bookModel(book);
         return await createdBook.save();
     }
 
@@ -30,11 +29,11 @@ export class BooksService {
         return await this.bookModel.find(query);
     }
 
-    public async updateById(createdBookDto: CreateBookDto, id: string): Promise<Book> { // TODOs
+    public async updateById(book: Book, id: string): Promise<Book> { // TODOs
         const query = { _id: id };
         // console.log('Service update: ' + createdBookDto.id);
         // return await this.bookModel.findOneAndUpdate(query, { name: 'BAZINGA' });
-        return await this.bookModel.findOneAndUpdate(query, createdBookDto);
+        return await this.bookModel.findOneAndUpdate(query, book);
     }
 
     public async deleteById(id: string): Promise<any> {

@@ -2,8 +2,7 @@
 import { Controller, Post, Get, Param, Body, Put, Res, HttpStatus, Delete } from '@nestjs/common';
 import { Response } from 'express';
 // Models
-import { CreateBookDto } from 'models/dto';
-import { Book } from 'models/interfaces';
+import { Book } from 'models';
 // Services
 import { BooksService } from 'services';
 
@@ -16,10 +15,10 @@ export class BooksController {
     }
 
     @Post('create')
-    public async create(@Body() createBookDto: CreateBookDto): Promise<Book> { // TODO
+    public async create(@Body() book: Book): Promise<Book> { // TODO
         // res.json({status: HttpStatus });
         console.log('POST create');
-        return this.booksService.create(createBookDto);
+        return this.booksService.create(book);
         // res.status(HttpStatus.CREATED).send();
         // return `Create new book`;
     }
@@ -37,10 +36,10 @@ export class BooksController {
     }
 
     @Put('updateById/:id')
-    public async updateById(@Param('id') id: string, @Body() createdBookDto: CreateBookDto): Promise<Book> {
-        createdBookDto.id = String(id);
+    public async updateById(@Param('id') id: string, @Body() book: Book): Promise<Book> {
+        book.id = String(id);
         console.log('PUT: ' + id);
-        return this.booksService.updateById(createdBookDto, id);
+        return this.booksService.updateById(book, id);
     }
 
     @Delete('deleteById/:id')

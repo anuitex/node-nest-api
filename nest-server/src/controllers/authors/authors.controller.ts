@@ -1,8 +1,7 @@
 // Vendors
 import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
 // Models
-import { AuthorDto } from 'models/dto';
-import { Author } from 'models/interfaces';
+import { Author } from 'models';
 // Services
 import { AuthorsService } from 'services/authors.service';
 
@@ -15,9 +14,9 @@ export class AuthorsController {
     }
 
     @Post('create')
-    public async create(@Body() authorDto: AuthorDto): Promise<Author> {
+    public async create(@Body() author: Author): Promise<Author> {
         console.log('POST create');
-        return this.authorsService.create(authorDto);
+        return this.authorsService.create(author);
     }
 
     @Get('getAll')
@@ -32,9 +31,9 @@ export class AuthorsController {
     }
 
     @Put('updateById/:id')
-    public async updateById(@Param() id: string, @Body() authorDto: AuthorDto): Promise<Author> {
+    public async updateById(@Param() id: string, @Body() author: Author): Promise<Author> {
         console.log('PUT: ' + id);
-        return this.authorsService.updateById(authorDto, id);
+        return this.authorsService.updateById(author, id);
     }
 
     @Delete('deleteById/:id')

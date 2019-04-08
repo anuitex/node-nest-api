@@ -3,8 +3,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 // Models
-import { User } from 'models/interfaces/user.interface';
-import { UserDto } from 'models/dto/user.dto';
+import { User } from 'models/user.interface';
 
 @Injectable()
 export class UsersService {
@@ -14,8 +13,8 @@ export class UsersService {
 
     }
 
-    public async create(userDto: UserDto): Promise<User> {
-        const createdUser = new this.userModel(userDto);
+    public async create(user: User): Promise<User> {
+        const createdUser = new this.userModel(user);
         return await createdUser.save();
     }
 
@@ -28,11 +27,11 @@ export class UsersService {
         return await this.userModel.find(query);
     }
 
-    public async updateById(userDto: UserDto, id: string): Promise<User> { // TODOs
+    public async updateById(user: User, id: string): Promise<User> { // TODOs
         const query = { _id: (id as any).id };
         // console.log('Service update: ' + createdBookDto.id);
         // return await this.bookModel.findOneAndUpdate(query, { name: 'BAZINGA' });
-        return await this.userModel.findOneAndUpdate(query, userDto);
+        return await this.userModel.findOneAndUpdate(query, user);
     }
 
     public async deleteById(id: string): Promise<User> {

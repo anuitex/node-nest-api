@@ -1,8 +1,7 @@
 // Vendors
 import { Controller, Post, Get, Put, Delete, Param, Body } from '@nestjs/common';
 // Models
-import { UserDto } from 'models/dto';
-import { User } from 'models/interfaces';
+import { User } from 'models';
 // Services
 import { UsersService } from 'services/users.service';
 
@@ -15,9 +14,9 @@ export class UsersController {
     }
 
     @Post('create')
-    public async create(@Body() userDto: UserDto): Promise<User> {
+    public async create(@Body() user: User): Promise<User> {
         console.log('POST create');
-        return this.usersService.create(userDto);
+        return this.usersService.create(user);
     }
 
     @Get('getAll')
@@ -32,9 +31,9 @@ export class UsersController {
     }
 
     @Put('updateById/:id')
-    public async updateById(@Param() id: string, @Body() userDto: UserDto): Promise<User> {
+    public async updateById(@Param() id: string, @Body() user: User): Promise<User> {
         console.log('PUT: ' + id);
-        return this.usersService.updateById(userDto, id);
+        return this.usersService.updateById( user, id);
     }
 
     @Delete('deleteById/:id')
