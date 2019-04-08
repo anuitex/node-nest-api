@@ -2,13 +2,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Response } from 'express';
+// import { Response } from 'express';
 // Models
 import { Book } from 'models/interfaces/book.interface';
 import { CreateBookDto } from 'models/dto/create-book.dto';
 
 @Injectable()
 export class BooksService {
+    // public test: Book = {} as Book;
 
     constructor(
         @InjectModel('Book') private readonly bookModel: Model<Book>

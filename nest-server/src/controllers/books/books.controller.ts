@@ -15,23 +15,21 @@ export class BooksController {
 
     }
 
-    // localhost:3001/books/create
     @Post('create')
     public async create(@Body() createBookDto: CreateBookDto): Promise<Book> { // TODO
         // res.json({status: HttpStatus });
+        console.log('POST create');
         return this.booksService.create(createBookDto);
         // res.status(HttpStatus.CREATED).send();
         // return `Create new book`;
     }
 
-     // localhost:3001/books/getAll
     @Get('getAll')
     public getAll(): Promise<Book[]> {
-        console.log('Get All');
+        console.log('GET: All');
         return this.booksService.getAll();
     }
 
-     // localhost:3001/books/getById
     @Get('getById/:id')
     public getById(@Param('id') id: string): Promise<Book> {
         console.log('GET: ' + id);
@@ -46,7 +44,7 @@ export class BooksController {
     }
 
     @Delete('deleteById/:id')
-    public async deleteById(@Param() id: string): Promise<any> {
+    public async deleteById(@Param('id') id: string): Promise<any> {
         console.log('DELETE: ' + id);
         return this.booksService.deleteById(id);
     }
