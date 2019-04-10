@@ -28,12 +28,10 @@ export class AllBooksComponent implements OnInit {
   ) {
     this.currentUser = this.authenticationService.getCurrentUser();
 
-    this.booksService.getAllBooks().then((response) => {
-        this.books = response.books;
-        this.booksTotalCount = response.count;
-        console.log(response);
-    }).catch(function (e) {
-      console.log(e);
+    this.booksService.getAllBooks().subscribe((res) => {
+        this.books = res;
+        this.booksTotalCount = res.length;
+        console.log(res);
     });
   }
 

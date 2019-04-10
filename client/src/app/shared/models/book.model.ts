@@ -4,7 +4,7 @@ import { Author } from 'app/shared/models';
 import { BookType } from 'app/shared/enums';
 
 export interface Book {
-  id: number;
+  _id: string;
   name: string;
   description: string;
   authors: Author[];

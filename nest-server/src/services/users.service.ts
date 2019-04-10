@@ -39,4 +39,9 @@ export class UsersService {
         return await this.userModel.findByIdAndRemove(query);
     }
 
+    public async findOneByToken(token: any): Promise<User> {
+        const query = { token };
+        return await this.userModel.find(query);
+    }
+
 }

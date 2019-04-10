@@ -23,10 +23,10 @@ export class BookDetailsComponent implements OnInit {
     private bookService: BooksService,
     private authenticationService: AuthenticationService
   ) {
-    let bookId = parseInt(this.route.snapshot.params.id, 10);
+    let bookId = this.route.snapshot.params.id;
 
-    this.bookService.getBook(bookId).then((response) => {
-      this.book = response;
+    this.bookService.getBook(bookId).subscribe((response) => {
+      this.book = response[0];
     });
 
     this.currentUser = this.authenticationService.getCurrentUser();
@@ -37,7 +37,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   public editBook(): void {
-    this.router.navigate(['/admin/add-book', this.book.id]);
+    this.router.navigate(['/admin/add-book', this.book._id]);
   }
 
   public goToAllBooks(): void {

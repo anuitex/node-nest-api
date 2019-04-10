@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Models
-import { BooksResponse } from 'app/shared/models/responseModels';
+// import { BooksResponse } from 'app/shared/models/responseModels';
+import { environment } from 'environments/environment.dev';
 
 @Injectable()
 export class BooksService {
@@ -15,34 +16,24 @@ export class BooksService {
 
   }
 
-  public getAllBooks(): Promise<any> {
-    let promise = new Promise((resolve, reject) => {
-      this.http.get("../../../assets/books.json")
-        .toPromise()
-        .then((res: BooksResponse) => {
-          resolve(res);
-        });
-    });
-    return promise;
+  public getAllBooks(): any { // TODO
+    return this.http.get(`${environment.apiUrl}/books/getAll`);
   }
 
-  public getBook(bookId: number): Promise<any> {
-    let chosenBook;
-
-    let promise = new Promise((resolve, reject) => {
-      this.http.get("../../../assets/books.json")
-        .toPromise()
-        .then((res: BooksResponse) => {
-          let books = res.books;
-          chosenBook = books.find(x => x.id === bookId);
-          resolve(chosenBook);
-        });
-    });
-    return promise;
+  public getBook(bookId: string): any { // TODO
+    return this.http.get(`${environment.apiUrl}/books/getById/` + bookId);
   }
 
-  public delete(bookId: number): any { // TODO
+  public delete(bookId: string): any { // TODO
+    return this.http.delete(`${environment.apiUrl}/books/deleteById/` + bookId);
+  }
 
+  public updateBook(bookId: string, updatedBook: any): any { // TODO
+    return this.http.put(`${environment.apiUrl}/books/updateById/` + bookId, updatedBook);
+  }
+
+  public createBook(newBook): any {
+    return this.http.post(`${environment.apiUrl}/books/create`, newBook);
   }
 
 }

@@ -18,22 +18,22 @@ export class UserService {
   }
 
   public getAll(): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`);
+    return this.http.get<User[]>(`${environment.apiUrl}/users/getAll`);
   }
 
-  public getById(id: number): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/users/` + id);
+  public getById(id: string): Observable<any> { // TODO
+    return this.http.get(`${environment.apiUrl}/users/getById/` + id);
   }
 
-  public register(user: User): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/users/register`, user);
+  public register(user: User): Observable<any> { // TODO
+    return this.http.post(`${environment.apiUrl}/users/create`, user);
   }
 
-  public update(user: User): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/users/` + user.id, user);
+  public update(user: User): Observable<any> { // TODO
+    return this.http.put(`${environment.apiUrl}/users/updateById` + user.id, user);
   }
 
-  public delete(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/users/` + id);
+  public delete(id: number): Observable<any> { // TODO
+    return this.http.delete(`${environment.apiUrl}/users/deleteById` + id);
   }
 }

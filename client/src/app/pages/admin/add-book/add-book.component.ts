@@ -25,6 +25,7 @@ export class AddBookComponent implements OnInit {
   public dropdownList: Author[] = [];
   public selectedItems: Author[] = [];
   public dropdownSettings: Object = {};
+  public bookId: string;
 
   public control: FormControl = new FormControl();
 
@@ -36,18 +37,16 @@ export class AddBookComponent implements OnInit {
     private bookService: BooksService,
     private authorsService: AuthorsService
   ) {
-    this.authorsService.getAllAuthors().then((response) => {
-      this.authors = response.authors;
+    this.authorsService.getAllAuthors().subscribe((response) => {
+      this.authors = response;
       console.log(response);
-    }).catch(function (e) {
-    console.log(e);
     });
 
-    let bookId = parseInt(this.route.snapshot.params.id, 10);
+    this.bookId = this.route.snapshot.params.id;
 
-    if (bookId !== -1) {
-      this.bookService.getBook(bookId).then((response) => {
-        this.book = response;
+    if (this.bookId !== '-1') {
+      this.bookService.getBook(this.bookId).subscribe((res) => {
+        this.book = res[0];
 
         this.bookForm.setValue({
           name: this.book.name,
@@ -73,7 +72,7 @@ export class AddBookComponent implements OnInit {
 
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'id',
+      idField: '_id',
       textField: 'firstName',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
@@ -81,22 +80,28 @@ export class AddBookComponent implements OnInit {
       allowSearchFilter: true,
       placeholder: 'Select authors'
     };
-
-    this.dropdownList = [
-      { id: 1, firstName: 'John', lastName: 'Doe' },
-      { id: 2, firstName: 'Jane', lastName: 'Doe' },
-      { id: 3, firstName: 'Govard', lastName: 'Lavcraft' },
-      { id: 4, firstName: 'Joahn', lastName: 'Rouling' },
-      { id: 5, firstName: 'Barb', lastName: 'Hendi' },
-      { id: 6, firstName: 'Den', lastName: 'Braun' },
-      { id: 7, firstName: 'Mark', lastName: 'Twen' }
-    ];
   }
 
   public onSubmit(): void {
     this.submitted = true;
 
     this.router.navigate(['all-books']);
+  }
+
+  public submitBook(): any { // TODO
+    if (this.bookId !== '-1') {
+      this.updateBook(this.book._id, this.bookForm);
+    } else {
+      this.createBook();
+    }
+  }
+
+  public updateBook(id: string, updatedBook: any): any { // TODO
+    this.bookService.updateBook(id, updatedBook);
+  }
+
+  public createBook() {
+    this.bookService.createBook(this.bookForm);
   }
 
   public cancel(): void {
@@ -110,4 +115,5 @@ export class AddBookComponent implements OnInit {
   public onSelectAll(items: any): void {
     console.log(items);
   }
+
 }

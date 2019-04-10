@@ -28,11 +28,10 @@ export class AllAuthorsComponent implements OnInit {
   ) {
     this.currentUser = this.authenticationService.getCurrentUser();
 
-    this.authorsService.getAllAuthors().then((response) => {
-        this.authors = response.authors;
-        this.authorsTotalCount = response.count;
-    }).catch(function (e) {
-      console.log(e);
+    this.authorsService.getAllAuthors().subscribe((res) => {
+      console.log(res);
+        this.authors = res.authors;
+        this.authorsTotalCount = res.length;
     });
   }
 
@@ -44,11 +43,11 @@ export class AllAuthorsComponent implements OnInit {
     this.router.navigate(['/admin/add-author', -1]);
   }
 
-  public editAuthorDetails(authorId: number): void {
+  public editAuthorDetails(authorId: string): void {
     this.router.navigate(['/admin/add-author', authorId]);
   }
 
-  public deleteAuthor(authorId: number): void {
+  public deleteAuthor(authorId: string): void {
     let xex = this.authors.find(x => x.id === authorId);
     console.log('Author ID ' + authorId);
     console.log(xex);

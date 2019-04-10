@@ -40,7 +40,7 @@ export class AddAuthorComponent implements OnInit {
     let authorId = parseInt(this.route.snapshot.params.id, 10);
 
     if (authorId !== -1) {
-      this.authorsService.getAuthor(authorId).then((response) => {
+      this.authorsService.getAuthor(authorId).subscribe((response) => {
         this.author = response;
 
         this.authorForm.setValue({
