@@ -30,10 +30,10 @@ export class UserService {
   }
 
   public update(user: User): Observable<any> { // TODO
-    return this.http.put(`${environment.apiUrl}/users/updateById` + user.id, user);
+    return this.http.put(`${environment.apiUrl}/users/updateById/` + user.id, user);
   }
 
   public delete(id: number): Observable<any> { // TODO
-    return this.http.delete(`${environment.apiUrl}/users/deleteById` + id);
+    return this.http.delete(`${environment.apiUrl}/users/deleteById/` + id);
   }
 }

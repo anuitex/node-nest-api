@@ -16,6 +16,7 @@ import { BooksService, AuthenticationService } from 'app/shared/services';
 export class BookDetailsComponent implements OnInit {
   public book: Book;
   public currentUser: User;
+  public bookId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,10 +24,10 @@ export class BookDetailsComponent implements OnInit {
     private bookService: BooksService,
     private authenticationService: AuthenticationService
   ) {
-    let bookId = this.route.snapshot.params.id;
+    this.bookId = this.route.snapshot.params.id;
 
-    this.bookService.getBook(bookId).subscribe((response) => {
-      this.book = response[0];
+    this.bookService.getBook(this.bookId).subscribe((res) => {
+      this.book = res[0];
     });
 
     this.currentUser = this.authenticationService.getCurrentUser();
@@ -38,6 +39,11 @@ export class BookDetailsComponent implements OnInit {
 
   public editBook(): void {
     this.router.navigate(['/admin/add-book', this.book._id]);
+  }
+
+  public deleteBook(): void {
+    this.bookService.deleteBook(this.bookId).subscribe(() => {});
+    this.goToAllBooks();
   }
 
   public goToAllBooks(): void {

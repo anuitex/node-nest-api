@@ -90,18 +90,19 @@ export class AddBookComponent implements OnInit {
 
   public submitBook(): any { // TODO
     if (this.bookId !== '-1') {
-      this.updateBook(this.book._id, this.bookForm);
+      debugger;
+      this.updateBook(this.book._id, this.bookForm.value);
     } else {
       this.createBook();
     }
   }
 
   public updateBook(id: string, updatedBook: any): any { // TODO
-    this.bookService.updateBook(id, updatedBook);
+    this.bookService.updateBook(id, updatedBook).subscribe(() => {});
   }
 
   public createBook() {
-    this.bookService.createBook(this.bookForm);
+    this.bookService.createBook(this.bookForm.value).subscribe(() => {});
   }
 
   public cancel(): void {

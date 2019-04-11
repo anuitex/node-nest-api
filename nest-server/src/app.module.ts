@@ -12,6 +12,8 @@ import { AppService } from 'app.service';
 import { BooksService, AuthService, AuthorsService, UsersService } from 'services';
 // Schemas
 import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
+// Providers
+import { databaseProvider } from 'providers/database.providers';
 
 @Module({
   imports: [
@@ -34,8 +36,11 @@ import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
     BooksService,
     AuthService,
     AuthorsService,
-    UsersService
-    // ...booksProviders
+    UsersService,
+    // ...databaseProvider
+  ],
+  exports: [
+    // ...databaseProvider
   ]
 })
 export class AppModule {}

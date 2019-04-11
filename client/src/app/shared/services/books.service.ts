@@ -24,15 +24,17 @@ export class BooksService {
     return this.http.get(`${environment.apiUrl}/books/getById/` + bookId);
   }
 
-  public delete(bookId: string): any { // TODO
+  public deleteBook(bookId: string): any { // TODO
     return this.http.delete(`${environment.apiUrl}/books/deleteById/` + bookId);
   }
 
   public updateBook(bookId: string, updatedBook: any): any { // TODO
+    debugger;
     return this.http.put(`${environment.apiUrl}/books/updateById/` + bookId, updatedBook);
   }
 
   public createBook(newBook): any {
+    debugger;
     return this.http.post(`${environment.apiUrl}/books/create`, newBook);
   }
 

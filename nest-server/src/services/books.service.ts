@@ -29,16 +29,13 @@ export class BooksService {
         return await this.bookModel.find(query);
     }
 
-    public async updateById(book: Book, id: string): Promise<Book> { // TODOs
+    public async updateById(book: Book, id: string): Promise<Book> {
         const query = { _id: id };
-        // console.log('Service update: ' + createdBookDto.id);
-        // return await this.bookModel.findOneAndUpdate(query, { name: 'BAZINGA' });
         return await this.bookModel.findOneAndUpdate(query, book);
     }
 
     public async deleteById(id: string): Promise<any> {
-        const query = { _id: (id as any).id };
-        console.log('Service delete: ' + query);
+        const query = { _id: id };
         return await this.bookModel.findByIdAndRemove(query);
     }
 }
