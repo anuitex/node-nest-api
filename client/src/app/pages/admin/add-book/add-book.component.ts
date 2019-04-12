@@ -85,23 +85,22 @@ export class AddBookComponent implements OnInit {
   public onSubmit(): void {
     this.submitted = true;
 
-    this.router.navigate(['all-books']);
+    this.router.navigate(['library/all-books']);
   }
 
   public submitBook(): any { // TODO
     if (this.bookId !== '-1') {
-      debugger;
       this.updateBook(this.book._id, this.bookForm.value);
     } else {
       this.createBook();
     }
   }
 
-  public updateBook(id: string, updatedBook: any): any { // TODO
+  public updateBook(id: string, updatedBook: any): void { // TODO
     this.bookService.updateBook(id, updatedBook).subscribe(() => {});
   }
 
-  public createBook() {
+  public createBook(): void {
     this.bookService.createBook(this.bookForm.value).subscribe(() => {});
   }
 

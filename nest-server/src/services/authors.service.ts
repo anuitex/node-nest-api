@@ -27,9 +27,8 @@ export class AuthorsService {
         return await this.authorModel.find(query);
     }
 
-    public async updateById(author: Author, id: string): Promise<Author> { // TODOs
+    public async updateById(author: Author, id: string): Promise<Author> { // TODO
         const query = { _id: (id as any).id };
-        console.log(query);
         return await this.authorModel.findOneAndUpdate(query, author);
     }
 

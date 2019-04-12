@@ -13,7 +13,7 @@ import { BooksService, AuthService, AuthorsService, UsersService } from 'service
 // Schemas
 import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
 // Providers
-import { databaseProvider } from 'providers/database.providers';
+// import { databaseProvider } from 'providers/database.providers';
 
 @Module({
   imports: [

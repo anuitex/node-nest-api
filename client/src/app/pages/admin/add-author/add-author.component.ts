@@ -22,6 +22,7 @@ export class AddAuthorComponent implements OnInit {
   public formCtrl: any;
   public author: Author;
   public control: FormControl = new FormControl();
+  public authorId: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,11 +38,11 @@ export class AddAuthorComponent implements OnInit {
     // console.log(e);
     // });
 
-    let authorId = parseInt(this.route.snapshot.params.id, 10);
+    this.authorId = this.route.snapshot.params.id;
 
-    if (authorId !== -1) {
-      this.authorsService.getAuthor(authorId).subscribe((response) => {
-        this.author = response;
+    if (this.authorId !== '-1') {
+      this.authorsService.getAuthor(this.authorId).subscribe((res) => {
+        this.author = res[0];
 
         this.authorForm.setValue({
           firstName: this.author.firstName,
@@ -66,10 +67,26 @@ export class AddAuthorComponent implements OnInit {
   public onSubmit(): void {
     this.submitted = true;
 
-    this.router.navigate(['all-authors']);
+    this.router.navigate(['library/all-authors']);
   }
 
   public cancel(): void {
     this.location.back();
+  }
+
+  public submitAuthor(): any { // TODO
+    if (this.authorId !== '-1') {
+      this.updateAuthor(this.author._id, this.authorForm.value);
+    } else {
+      this.createAuthor();
+    }
+  }
+
+  public updateAuthor(id: string, updatedAuthor: any): void {
+    this.authorsService.updateAuthor(id, updatedAuthor).subscribe(() => {});
+  }
+
+  public createAuthor(): void {
+    this.authorsService.createAuthor(this.authorForm.value).subscribe(() => {});
   }
 }

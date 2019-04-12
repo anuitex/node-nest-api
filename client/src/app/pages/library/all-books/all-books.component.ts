@@ -43,6 +43,10 @@ export class AllBooksComponent implements OnInit {
     this.router.navigate(['/admin/add-book', -1]);
   }
 
+  public addNewAuthor(): void {
+    this.router.navigate(['/admin/add-author', -1]);
+  }
+
   public showBookDetails(id: number): void {
     this.router.navigate(['/library/book-details', id]);
   }

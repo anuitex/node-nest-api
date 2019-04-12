@@ -29,12 +29,10 @@ export class BooksService {
   }
 
   public updateBook(bookId: string, updatedBook: any): any { // TODO
-    debugger;
     return this.http.put(`${environment.apiUrl}/books/updateById/` + bookId, updatedBook);
   }
 
   public createBook(newBook): any {
-    debugger;
     return this.http.post(`${environment.apiUrl}/books/create`, newBook);
   }
 
