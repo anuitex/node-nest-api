@@ -28,6 +28,8 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookService.getBook(this.bookId).subscribe((res) => {
       this.book = res[0];
+    }, (err) => {
+        console.log(err);
     });
 
     this.currentUser = this.authenticationService.getCurrentUser();

@@ -29,12 +29,16 @@ export class AllUsersComponent implements OnInit {
   public deleteUser(id: number): void {
     this.userService.delete(id).pipe(first()).subscribe(() => {
       this.loadAllUsers();
+    }, (err) => {
+      console.log(err);
     });
   }
 
   private loadAllUsers(): void {
     this.userService.getAll().pipe(first()).subscribe(users => {
       this.users = users;
+    }, (err) => {
+      console.log(err);
     });
   }
 }

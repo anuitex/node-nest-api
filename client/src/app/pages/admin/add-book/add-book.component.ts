@@ -39,7 +39,8 @@ export class AddBookComponent implements OnInit {
   ) {
     this.authorsService.getAllAuthors().subscribe((response) => {
       this.authors = response;
-      console.log(response);
+    }, (err) => {
+      console.log(err);
     });
 
     this.bookId = this.route.snapshot.params.id;
@@ -55,6 +56,8 @@ export class AddBookComponent implements OnInit {
           outOfLibrary: this.book.outOfLibrary,
           type: this.book.type
         });
+      }, (err) => {
+        console.log(err);
       });
     }
   }

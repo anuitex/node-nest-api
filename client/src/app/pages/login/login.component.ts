@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   public loading: boolean = false;
   public submitted: boolean = false;
   public returnUrl: string;
+  public formCtrl: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin';
+
+    this.formCtrl = this.loginForm.controls;
   }
 
   // convenience getter for easy access to form fields
@@ -56,10 +59,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
+        (data) => {
           this.router.navigate([this.returnUrl]);
         },
-        error => {
+        (error) => {
           this.alertService.error(error);
           this.loading = false;
         });

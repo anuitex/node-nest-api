@@ -51,6 +51,8 @@ export class AddAuthorComponent implements OnInit {
           // outOfLibrary: this.book.outOfLibrary,
           // type: this.book.type
         });
+      }, (err) => {
+        console.log(err);
       });
     }
   }

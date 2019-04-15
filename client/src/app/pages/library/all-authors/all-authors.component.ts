@@ -29,9 +29,10 @@ export class AllAuthorsComponent implements OnInit {
     this.currentUser = this.authenticationService.getCurrentUser();
 
     this.authorsService.getAllAuthors().subscribe((res) => {
-      console.log(res);
         this.authors = res;
         this.authorsTotalCount = res.length;
+    }, (err) => {
+        console.log(err);
     });
   }
 
@@ -48,9 +49,6 @@ export class AllAuthorsComponent implements OnInit {
   }
 
   public deleteAuthor(authorId: string): void {
-    // let xex = this.authors.find(x => x.id === authorId);
-    // console.log('Author ID ' + authorId);
-    // console.log(xex);
     this.authorsService.deleteAuthor(authorId).subscribe(() => {});
   }
 

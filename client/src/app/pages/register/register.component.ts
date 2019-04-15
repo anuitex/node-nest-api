@@ -1,7 +1,7 @@
 // Vendors
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 // Services
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public loading: Boolean = false;
   public submitted: Boolean = false;
-  public formCtrl: any = this.registerForm.controls;
+  public formCtrl: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,6 +36,9 @@ export class RegisterComponent implements OnInit {
       repeatPassword: ['', [Validators.required, Validators.minLength(6)]],
       userRole: ['', Validators.required]
     });
+
+    this.formCtrl = this.registerForm.controls;
+    console.log(this.formCtrl);
   }
 
   // convenience getter for easy access to form fields
@@ -53,14 +56,13 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    this.userService.register(this.registerForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
+    debugger;
+    this.userService.register(this.registerForm.value).subscribe(
+        (data) => {
           this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
         },
-        error => {
+        (error) => {
           this.alertService.error(error);
           this.loading = false;
         });
