@@ -2,15 +2,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-// import { first } from "rxjs/operators";
-// import { Observable } from "rxjs";
-// import { JwtHelperService } from '@auth0/angular-jwt';
-// import * as jwt_decode from 'jwt-decode';
 
 // Services
 import { AlertService, AuthenticationService } from "app/shared/services";
-// Models
-// import { User } from "app/shared/models";
 
 @Component({
   templateUrl: "login.component.html",
@@ -28,8 +22,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService,
-    // private jwtHelper: JwtHelperService
+    private alertService: AlertService
   ) {
 
   }
@@ -59,15 +52,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService
       .login(this.formCtrl.username.value, this.formCtrl.password.value)
       .subscribe(
-        (data: any) => {
-          // let decodedToken = jwt_decode(data.token);
-          // localStorage.setItem('currentUser', decodedToken);
-          debugger;
+        (data) => {
           this.router.navigate([this.returnUrl]);
         },
-        error => {
-          debugger;
-
+        (error) => {
           this.alertService.error(error);
           this.loading = false;
         }

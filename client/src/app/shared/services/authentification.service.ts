@@ -1,14 +1,11 @@
 // Vendors
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-// import { map } from "rxjs/operators";
-// import { Observable } from "rxjs";
 import * as jwt_decode from "jwt-decode";
 
 // Environments
 import { environment } from "environments/environment";
 // Services
-// import { AlertService } from './';
 import { AlertService } from '.';
 // Models
 import { User } from "app/shared/models";
@@ -42,16 +39,6 @@ export class AuthenticationService {
       });
 
       return user;
-    // .pipe(map((user: User) => {
-    //   console.log(user);
-    //   // login successful if there's a jwt token in the response
-    //   if (user && user.token) {
-    //     // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //     localStorage.setItem('currentUser', JSON.stringify(user));
-    //   }
-    //   console.log(user);
-    //   return user;
-    // })).toPromise();
   }
 
   public logout(): void {
