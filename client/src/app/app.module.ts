@@ -5,6 +5,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxPaginationModule } from 'ngx-pagination';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+// import { JwtHelperService } from '@auth0/angular-jwt';
+
+// import { Http, RequestOptions } from '@angular/http';
+// import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 // Routings
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +60,7 @@ const APP_COMPONENTS = [
     AuthorsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    // JwtHelperService,
     // provider used to create fake backend
     fakeBackendProvider
   ],

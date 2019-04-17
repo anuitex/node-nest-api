@@ -19,7 +19,7 @@ export class AllBooksComponent implements OnInit {
   public books: Book[] = [] as Book[];
   public booksTotalCount: number;
   public currentUser: User;
-  public p: number = 1;
+  public page: number = 1;
 
   constructor(
     public booksService: BooksService,
@@ -27,18 +27,15 @@ export class AllBooksComponent implements OnInit {
     public router: Router
   ) {
     this.currentUser = this.authenticationService.getCurrentUser();
-
-    this.booksService.getAllBooks().subscribe((res) => {
-        this.books = res;
-        this.booksTotalCount = res.length;
-        console.log(res);
-    }, (err) => {
-        console.log(err);
-    });
   }
 
-  ngOnInit() {
-
+  async ngOnInit() {
+    const booksResponseData = await this.booksService.getAllBooks();
+    if (booksResponseData.error) {
+      return;
+    }
+    this.books = booksResponseData.data;
+    this.booksTotalCount = booksResponseData.data.length;
   }
 
   public addNewBook(): void {
@@ -54,6 +51,6 @@ export class AllBooksComponent implements OnInit {
   }
 
   public pageChange($event: number): void {
-    this.p = $event;
+    this.page = $event;
   }
 }

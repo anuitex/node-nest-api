@@ -44,9 +44,10 @@ export class UsersService {
         return await this.userModel.find(query);
     }
 
-    public async findOneByEmail(email: string): Promise<User> {
-        const query = { email };
-        return await this.userModel.find(query);
+    public async findOneByName(username: string): Promise<User> {
+        const query = { username };
+        const user = await this.userModel.find(query);
+        return user;
     }
 
 }

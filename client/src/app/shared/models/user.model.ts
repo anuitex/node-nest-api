@@ -2,7 +2,7 @@
 import { UserType } from 'app/shared/enums';
 
 export interface User {
-    id: number;
+    id: string;
     username: string;
     password: string;
     firstName: string;

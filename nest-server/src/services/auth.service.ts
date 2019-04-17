@@ -1,7 +1,7 @@
 // Vendors
 import { Injectable } from '@nestjs/common';
-// import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
+// import { InjectModel } from '@nestjs/mongoose';
 // import { Model } from 'mongoose';
 // Models
 import { User } from 'models/user.interface';
@@ -11,36 +11,34 @@ import { JwtPayload } from 'models';
 
 @Injectable()
 export class AuthService {
-    constructor(
-        // @InjectModel('Users') private readonly userModel: Model<User>,
-        private readonly usersService: UsersService,
-        private readonly jwtService: JwtService
-    ) {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {
 
-    }
+  }
 
-    async createToken() {
-        const user: JwtPayload = { email: 'test@email.com' };
-        const accessToken = this.jwtService.sign(user);
-        return {
-            expiresIn: 3600,
-            accessToken,
-        };
-    }
+  // async createToken() {
+  //     const user: JwtPayload = { username: 'test@email.com' };
+  //     const accessToken = this.jwtService.sign(user);
+  //     return {
+  //         expiresIn: 3600,
+  //         accessToken,
+  //     };
+  // }
 
-    async validateUser(payload: JwtPayload): Promise<any> {
-        return {};
-    }
+  // TODO
+  public signIn(username: string, password: string): string {
+    const user: JwtPayload = { username };
+    this.validateUser(user.username);
+    return this.jwtService.sign(user);
+  }
 
-    async signIn(username: string): Promise<string> { // TODO
-        const user: any = { username };
-        return this.jwtService.sign(user);
-    }
-
-    // async validateUser(payload: any): Promise<any> { // TODO
-    //     // Validate if token passed along with HTTP request
-    //     // is associated with any registered account in the database
-    //     // return await this.usersService.findOneByToken(token);
-    //     return await this.usersService.findOneByEmail(payload.email);
-    // }
+  // TODO
+  async validateUser(payload: any): Promise<any> {
+    // Validate if token passed along with HTTP request
+    // is associated with any registered account in the database
+    // return await this.usersService.findOneByToken(token);
+    return await this.usersService.findOneByName(payload.username);
+  }
 }

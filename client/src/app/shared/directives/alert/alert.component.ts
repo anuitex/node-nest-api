@@ -6,8 +6,7 @@ import { Subscription } from 'rxjs';
 import { AlertService } from './../../../shared/services';
 
 @Component({
-    // tslint:disable-next-line:component-selector
-    selector: 'alert',
+    selector: 'app-alert',
     templateUrl: 'alert.component.html'
 })
 
