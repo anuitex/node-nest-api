@@ -30,7 +30,7 @@ export class AuthService {
   // TODO
   public signIn(username: string, password: string): string {
     const user: JwtPayload = { username };
-    this.validateUser(user.username);
+    // this.validateUser(user.username);
     return this.jwtService.sign(user);
   }
 
