@@ -4,7 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 // import { InjectModel } from '@nestjs/mongoose';
 // import { Model } from 'mongoose';
 // Models
-import { User } from 'models/user.interface';
+// import { User } from 'models/user.interface';
 // Service
 import { UsersService } from 'services/users.service';
 import { JwtPayload } from 'models';
@@ -28,8 +28,16 @@ export class AuthService {
   // }
 
   // TODO
-  public signIn(username: string, password: string): string {
-    const user: JwtPayload = { username };
+  public async signIn(username: string, password: string): Promise<string> {
+    const neededUser = await this.usersService.findOneByName(username);
+    // delete neededUser.password;
+    console.log(neededUser);
+    const user: JwtPayload = {
+        username: neededUser.username,
+        firstName: neededUser.firstName,
+        lastName: neededUser.lastName,
+        userRole: neededUser.userRole
+    };
     // this.validateUser(user.username);
     return this.jwtService.sign(user);
   }

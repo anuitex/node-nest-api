@@ -10,8 +10,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  login(@Body() body: { username: string; password: string }): {token: string} {
-    const token = this.authService.signIn(body.username, body.password);
+  async login(@Body() body: { username: string; password: string }): Promise<{token: string}> {
+    const token = await this.authService.signIn(body.username, body.password);
     return {
       token
     };

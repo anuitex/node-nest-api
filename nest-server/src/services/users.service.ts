@@ -46,7 +46,7 @@ export class UsersService {
 
     public async findOneByName(username: string): Promise<User> {
         const query = { username };
-        const user = await this.userModel.find(query);
+        const user = await this.userModel.findOne(query);
         return user;
     }
 

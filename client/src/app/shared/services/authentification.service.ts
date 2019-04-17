@@ -22,19 +22,6 @@ export class AuthenticationService {
 
   }
 
-  // public login(username: string, password: string): Observable<User> {
-  //   return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username: username, password: password })
-  //     .pipe(map(user => {
-  //       // login successful if there's a jwt token in the response
-  //       if (user && user.token) {
-  //         // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //         localStorage.setItem('currentUser', JSON.stringify(user));
-  //       }
-
-  //       return user;
-  //     }));
-  // }
-
   public login(username: string, password: string) {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -44,9 +31,10 @@ export class AuthenticationService {
 
     user.subscribe(
       (data: any) => {
+        localStorage.setItem("token", JSON.stringify(data.token));
         let decodedToken = jwt_decode(data.token);
         console.log(decodedToken);
-        localStorage.setItem("currentUser", decodedToken);
+        localStorage.setItem("currentUser", JSON.stringify(decodedToken));
         return data;
       },
       (error) => {
@@ -69,6 +57,7 @@ export class AuthenticationService {
   public logout(): void {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("token");
   }
 
   public getCurrentUser(): User {
