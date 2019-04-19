@@ -30,7 +30,6 @@ export class AuthService {
   // TODO
   public async signIn(username: string, password: string): Promise<string> {
     const neededUser = await this.usersService.findOneByName(username);
-    // delete neededUser.password;
     console.log(neededUser);
     const user: JwtPayload = {
         username: neededUser.username,
@@ -38,7 +37,6 @@ export class AuthService {
         lastName: neededUser.lastName,
         userRole: neededUser.userRole
     };
-    // this.validateUser(user.username);
     return this.jwtService.sign(user);
   }
 

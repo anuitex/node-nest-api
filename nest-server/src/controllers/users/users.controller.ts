@@ -1,5 +1,5 @@
 // Vendors
-import { Controller, Post, Get, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Post, Get, Put, Delete, Param, Body, HttpException, HttpStatus } from '@nestjs/common';
 // Models
 import { User } from 'models';
 // Services
@@ -16,6 +16,12 @@ export class UsersController {
     @Post('create')
     public async create(@Body() user: User): Promise<User> {
         console.log('POST create');
+        // this.usersService.findOneByName(user.username);
+        const existingUserName = await this.usersService.findOneByName(user.username);
+        if (existingUserName) {
+            throw new HttpException('This username is in use', HttpStatus.METHOD_NOT_ALLOWED);
+        }
+
         return this.usersService.create(user);
     }
 
