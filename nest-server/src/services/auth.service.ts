@@ -27,8 +27,7 @@ export class AuthService {
   //     };
   // }
 
-  // TODO
-  public async signIn(username: string, password: string): Promise<string> {
+  public async signIn(username: string): Promise<string> {
     const neededUser = await this.usersService.findOneByName(username);
     console.log(neededUser);
     const user: JwtPayload = {

@@ -1,10 +1,13 @@
 // Vendors
-import { Controller, Post, Get, Put, Delete, Param, Body, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Get, Put, Delete, Param, Body, HttpException, HttpStatus, UseInterceptors } from '@nestjs/common';
 // Models
 import { User } from 'models';
 // Services
 import { UsersService } from 'services/users.service';
+// Interceptors
+import { TransformInterceptor } from 'common/interceptors/transform.interceptor';
 
+// @UseInterceptors(new TransformInterceptor())
 @Controller('users')
 export class UsersController {
     constructor(

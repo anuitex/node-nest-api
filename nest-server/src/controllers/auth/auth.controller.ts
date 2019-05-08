@@ -1,5 +1,5 @@
 // Vendors
-import { Controller, Post, Req, Get, UseGuards, Body, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Req, Get, UseGuards, Body, HttpException, HttpStatus, UseInterceptors } from '@nestjs/common';
 import { Request } from 'express';
 // Service
 import { AuthService, UsersService } from 'services';
@@ -21,7 +21,7 @@ export class AuthController {
       throw new HttpException( 'Wrong username', HttpStatus.FORBIDDEN);
     }
     if (neededUser && neededUser.password === body.password) {
-      const token = await this.authService.signIn(body.username, body.password);
+      const token = await this.authService.signIn(body.username);
       return {
         token
       };

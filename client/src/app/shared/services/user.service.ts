@@ -33,7 +33,7 @@ export class UserService {
     return this.http.put(`${environment.apiUrl}/users/updateById/` + user.id, user);
   }
 
-  public delete(id: number): Observable<any> { // TODO
+  public delete(id: string): Observable<any> { // TODO
     return this.http.delete(`${environment.apiUrl}/users/deleteById/` + id);
   }
 }

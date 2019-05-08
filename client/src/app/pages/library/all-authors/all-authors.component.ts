@@ -28,16 +28,20 @@ export class AllAuthorsComponent implements OnInit {
   ) {
     this.currentUser = this.authenticationService.getCurrentUser();
 
-    this.authorsService.getAllAuthors().subscribe((res) => {
-        this.authors = res;
-        this.authorsTotalCount = res.length;
-    }, (err) => {
-        console.log(err);
-    });
+    this.getAllAuthors();
   }
 
   ngOnInit() {
 
+  }
+
+  public getAllAuthors(): void {
+    this.authorsService.getAllAuthors().subscribe((res) => {
+      this.authors = res;
+      this.authorsTotalCount = res.length;
+  }, (err) => {
+      console.log(err);
+  });
   }
 
   public addNewAuthor(): void {
@@ -49,10 +53,15 @@ export class AllAuthorsComponent implements OnInit {
   }
 
   public deleteAuthor(authorId: string): void {
-    this.authorsService.deleteAuthor(authorId).subscribe(() => {});
+    this.authorsService.deleteAuthor(authorId).subscribe(() => {
+      this.getAllAuthors();
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   public pageChange($event: number): void {
+    debugger;
     this.p = $event;
   }
 }

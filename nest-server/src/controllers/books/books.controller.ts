@@ -1,11 +1,14 @@
 // Vendors
-import { Controller, Post, Get, Param, Body, Put, Res, HttpStatus, Delete } from '@nestjs/common';
+import { Controller, Post, Get, Param, Body, Put, Res, HttpStatus, Delete, UseInterceptors } from '@nestjs/common';
 import { Response } from 'express';
 // Models
 import { Book } from 'models';
 // Services
 import { BooksService } from 'services';
+// Interceptors
+import { TransformInterceptor } from 'common/interceptors/transform.interceptor';
 
+// @UseInterceptors(new TransformInterceptor())
 @Controller('books')
 export class BooksController {
     constructor(
