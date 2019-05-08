@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { first } from 'rxjs/operators';
+// import { first } from 'rxjs/operators';
 
 // Services
 import { AlertService, UserService } from 'app/shared/services';
@@ -50,21 +50,17 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
     if (this.registerForm.value.password !== this.registerForm.value.repeatPassword) {
       return;
     }
 
     this.loading = true;
-    debugger;
     this.userService.register(this.registerForm.value).subscribe(
         (data) => {
-          debugger;
           this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
         },
         (error) => {
-          debugger;
           this.alertService.error(error);
           this.loading = false;
         });

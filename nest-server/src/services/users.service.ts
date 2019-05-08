@@ -17,10 +17,8 @@ export class UsersService {
         // const existingUserName = await this.findOneByName(user.username);
         // let createdUser;
         // if (!existingUserName) {
-            
-            
         // }
-        let createdUser = new this.userModel(user);
+        const createdUser = new this.userModel(user);
         return await createdUser.save();
     }
 

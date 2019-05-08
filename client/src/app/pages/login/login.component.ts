@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
       .login(this.formCtrl.username.value, this.formCtrl.password.value)
       .subscribe(
         (data) => {
+          debugger;
           this.router.navigate([this.returnUrl]);
         },
         (error) => {

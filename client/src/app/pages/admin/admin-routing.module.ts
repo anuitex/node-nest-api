@@ -9,7 +9,8 @@ import { AddBookComponent } from 'app/pages/admin/add-book/add-book.component';
 import { AddAuthorComponent } from 'app/pages/admin/add-author/add-author.component';
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     redirectTo: 'all-users',
     pathMatch: 'full'
   },
