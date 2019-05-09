@@ -16,6 +16,8 @@ import { BooksService, AuthService, AuthorsService, UsersService } from 'service
 import { BookSchema, UserSchema, AuthorSchema } from 'schemas';
 // Strategies
 import { JwtStrategy } from 'strategy/jwt.strategy';
+// Logger
+import { MyLogger } from 'logger';
 
 @Module({
   imports: [
@@ -46,7 +48,8 @@ import { JwtStrategy } from 'strategy/jwt.strategy';
     AuthService,
     AuthorsService,
     UsersService,
-    JwtStrategy
+    JwtStrategy,
+    MyLogger
   ],
   exports: [ ]
 })

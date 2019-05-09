@@ -35,6 +35,7 @@ export class AllBooksComponent implements OnInit {
       return;
     }
     this.books = booksResponseData.data;
+    console.log(this.books);
     this.booksTotalCount = booksResponseData.data.length;
   }
 
