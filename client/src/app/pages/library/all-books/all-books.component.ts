@@ -8,6 +8,8 @@ import { Book, User } from 'app/shared/models';
 import { BooksService, AuthenticationService } from 'app/shared/services';
 // Enums
 import { UserType } from 'app/shared/enums';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+// import { HttpClient } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-all-books',
@@ -54,4 +56,5 @@ export class AllBooksComponent implements OnInit {
   public pageChange($event: number): void {
     this.page = $event;
   }
+
 }

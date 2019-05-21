@@ -31,10 +31,8 @@ export class UsersService {
         return await this.userModel.find(query);
     }
 
-    public async updateById(user: User, id: string): Promise<User> { // TODOs
+    public async updateById(user: User, id: string): Promise<User> {
         const query = { _id: (id as any).id };
-        // console.log('Service update: ' + createdBookDto.id);
-        // return await this.bookModel.findOneAndUpdate(query, { name: 'BAZINGA' });
         return await this.userModel.findOneAndUpdate(query, user);
     }
 
